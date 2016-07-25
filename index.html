@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<!--
+	Identity by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Sherry Yang</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel='shortcut icon' type='image/x-icon' href='/images/favicon.ico' />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-loading">
+		<!-- Wrapper -->
+		<div id="wrapper">
+			<!-- Main -->
+			<section id="main">
+				<header>
+					<span class="avatar"><img src="images/avatar.jpg" alt="" width="122px"/></span>
+					<h1>Sherry Yang</h1>
+					<p>
+						Software Developer
+						<br>
+						<a href="http://www.saitarisblog.com/rfid-application-development/" target="blank">SAIT - ARIS - CIITS</a>
+					</p>
+				</header>
+				
+				<footer>
+					<ul class="icons">
+						<li><a href="https://twitter.com/5hel2l2y" class="fa-twitter" target="blank">Twitter</a></li>
+						<li><a href="https://www.linkedin.com/in/sherrylwyang" class="fa-linkedin" target="blank">LinkedIn</a></li>
+						<li><a href="https://shel2l2y.wordpress.com/" class="fa-wordpress" target="blank">WordPress</a></li>
+					</ul>
+				</footer>
+			</section>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<ul class="copyright">
+					<li>&copy; Sherry Yang</li>
+					<li><a href=javascript:ViewSource()>View Source</a></li>
+				</ul>
+			</footer>
+		</div>
+
+		<!-- Scripts -->
+		<script>
+			// API from https://github.com/sterlingw/Nat-Geo-Photo-of-the-Day-API
+			var bgOfTheDay = httpGet("https://natgeoapi.herokuapp.com/api/dailyphoto");
+			
+			if(bgOfTheDay.src.length > 0) {
+				document.body.style.background = "url(https:" + bgOfTheDay.src + ") no-repeat";
+				document.body.style.backgroundSize = "cover";
+			}
+			
+			if ('addEventListener' in window) {
+				window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
+				document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+			}
+
+			function httpGet(theUrl) {
+			    var xmlHttp = new XMLHttpRequest();
+			    xmlHttp.open( "GET", theUrl, false );
+			    xmlHttp.send( null );
+			    return JSON.parse(xmlHttp.responseText);
+			}
+
+			function ViewSource() {
+				window.location = "view-source:" + window.location.href 
+			}
+		</script>
+	</body>
+</html>
