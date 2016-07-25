@@ -8,8 +8,8 @@ All the original code are marked with .bak.
 Please see [README.txt](README.txt)
 
 ## Credits
-[@ajlkn](https://github.com/ajlkn)
-[@sterlingw](https://github.com/sterlingw)
+* [@ajlkn](https://github.com/ajlkn)
+* [@sterlingw](https://github.com/sterlingw)
 
 ## License
 Please see [LICENSE.txt](LICENSE.txt)
