@@ -51,7 +51,7 @@
 			// API from https://github.com/sterlingw/Nat-Geo-Photo-of-the-Day-API
 			var bgOfTheDay = httpGet("https://natgeoapi.herokuapp.com/api/dailyphoto");
 			
-			if(bgOfTheDay.src.length > 0) {
+			if(typeof bgOfTheDay.src != "undefined" && bgOfTheDay.src.length > 0) {
 				document.body.style.background = "url(https:" + bgOfTheDay.src + ") no-repeat";
 				document.body.style.backgroundSize = "cover";
 			}
