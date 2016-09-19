@@ -14,6 +14,7 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-loading">
+		<img id="hi" />
 		<!-- Wrapper -->
 		<div id="wrapper">
 			<!-- Main -->
@@ -49,10 +50,10 @@
 		<!-- Scripts -->
 		<script>
 			// API from https://github.com/sterlingw/Nat-Geo-Photo-of-the-Day-API
-			var bgOfTheDay = httpGet("https://natgeoapi.herokuapp.com/api/dailyphoto");
+			var bgOfTheDay = httpGet("http://localhost:3000/api/dailyphoto");
 			
-			if(bgOfTheDay.src.length > 0) {
-				document.body.style.background = "url(https:" + bgOfTheDay.src + ") no-repeat";
+			if(typeof bgOfTheDay.src != "undefined" && bgOfTheDay.src.length > 0) {
+				document.body.style.backgroundImage = "url(" + bgOfTheDay.src + ")";
 				document.body.style.backgroundSize = "cover";
 			}
 			
