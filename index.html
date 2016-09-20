@@ -50,12 +50,7 @@
 		<!-- Scripts -->
 		<script>
 			// API from https://github.com/sterlingw/Nat-Geo-Photo-of-the-Day-API
-			var bgOfTheDay = httpGet("http://localhost:3000/api/dailyphoto");
-			
-			if(typeof bgOfTheDay.src != "undefined" && bgOfTheDay.src.length > 0) {
-				document.body.style.backgroundImage = "url(" + bgOfTheDay.src + ")";
-				document.body.style.backgroundSize = "cover";
-			}
+			httpGet("http://localhost:3000/api/dailyphoto");
 			
 			if ('addEventListener' in window) {
 				window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
@@ -64,9 +59,17 @@
 
 			function httpGet(theUrl) {
 			    var xmlHttp = new XMLHttpRequest();
-			    xmlHttp.open( "GET", theUrl, false );
-			    xmlHttp.send( null );
-			    return JSON.parse(xmlHttp.responseText);
+			    xmlHttp.open("GET", theUrl, true);
+			    xmlHttp.onreadystatechange = function() {
+				    if(xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+				        var bgOfTheDay = JSON.parse(xmlHttp.responseText);
+				        document.body.style.backgroundImage = "url(" + bgOfTheDay.src + ")";
+				        document.body.style.backgroundSize = "cover";
+				    }else{
+				        return false;
+				    }
+				}
+			    xmlHttp.send();
 			}
 
 			function ViewSource() {
